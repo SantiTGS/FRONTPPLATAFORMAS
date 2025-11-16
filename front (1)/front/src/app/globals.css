@@ -1,0 +1,583 @@
+@import "tailwindcss";
+
+/* ==== Variables de colores y fuentes ==== */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Tema oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  } 
+}
+
+/* ==== Estilos base ==== */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ==== Inputs ==== */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #001F54;
+  box-shadow: 0 0 4px rgba(0, 31, 84, 0.3);
+}
+
+/* ==== Botones generales ==== */
+.btn {
+  @apply block w-full py-2 px-4 text-lg rounded-md border transition duration-300;
+}
+
+.btn-primary {
+  @apply bg-[#001F54] text-white border-transparent hover:bg-[#003366];
+}
+
+.btn-secondary {
+  @apply bg-white text-[#001F54] border border-[#001F54] hover:bg-gray-100;
+}
+
+.btn-google {
+  @apply bg-white text-gray-700 border border-gray-300 hover:bg-gray-50;
+}
+
+.btn-facebook {
+  @apply bg-[#3b5998] text-white hover:bg-[#2d4373];
+}
+
+/* ==== Contenedores ==== */
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Variantes de contenedores */
+.login-container,
+.crear-container,
+.registro-container,
+.city-container,
+.contenedor-ciudad
+.available-container,
+.trips-container,
+.details-container {
+  @apply container;
+}
+
+/* ==== Títulos ==== */
+h1,
+h2,
+.titulo {
+  text-align: center;
+  color: #001F54;
+  margin-bottom: 20px;
+}
+
+/* ==== Formularios ==== */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* ==== Botones simples ==== */
+.boton {
+  background: #001F54;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: #003366;
+}
+
+/* ==== Links de acciones ==== */
+.login-container .link {
+  text-align: right;
+  margin: 10px 0;
+}
+
+.login-container .link a {
+  font-size: 14px;
+  color: #001F54;
+}
+
+.login-container .crear-cuenta {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-container .crear-cuenta a {
+  color: #001F54;
+  font-weight: bold;
+}
+
+.login-container .crear-cuenta a:hover,
+.login-container .link a:hover {
+  text-decoration: underline;
+}
+
+/* ==== Opciones (crear cuenta) ==== */
+.opcion {
+  margin-bottom: 30px;
+}
+
+.opcion-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.opcion-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #001F54;
+}
+
+/* ==== Otros ==== */
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Contenedor del formulario */
+.contenedor-form {
+  max-width: 400px;       /* limita el ancho */
+  margin: 50px auto;      /* centra horizontal */
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Título */
+.contenedor-form h2 {
+  margin-bottom: 20px;
+  color: #001F54;
+}
+
+/* Inputs */
+.contenedor-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Botón */
+.boton {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #001F54;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.boton:hover {
+  background: #003366;
+}
+
+.opciones {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.opcion {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.opcion:hover {
+  transform: scale(1.05);
+}
+
+.imagen-opcion {
+  width: 718px;
+  height: 718px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.opcion p{
+  font-weight: 500;
+  color: #001F54;
+  margin: 0;
+}
+
+.driver-quotas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+.quota-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* 🔹 Cada cuadrito */
+.quota-card {
+  background-color: #dfe8f9;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.quota-city {
+  font-weight: 600;
+  color: #1b1b1b;
+  margin-bottom: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.quota-date {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.6rem;
+}
+
+/* 🔹 Cada fila con icono + zona + hora */
+.quota-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  margin-top: 0.4rem;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.quota-icon {
+  font-size: 1rem;
+}
+
+.quota-zone {
+  flex: 1;
+  margin-left: 0.5rem;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.quota-hour {
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* 🔹 Botón */
+.boton-navegar {
+  background-color: #000020;
+  color: white;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.boton-navegar:hover {
+  background-color: #001f54;
+}
+
+.driver-quotas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 🔹 Título principal */
+.titulo {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: #222;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* 🔹 Contenedor de las tarjetas */
+.quota-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+/* 🔹 Cada tarjeta (cuadrado azul claro) */
+.quota-card {
+  background-color: #dfe8f9;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+/* 🔹 Ciudad y fecha */
+.quota-city {
+  font-weight: 600;
+  color: #1b1b1b;
+  margin-bottom: 0.2rem;
+  font-size: 1.1rem;
+}
+
+.quota-date {
+  font-size: 0.85rem;
+  color: #444;
+  margin-bottom: 0.6rem;
+}
+
+/* 🔹 Fila de zona + hora */
+.quota-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  margin-top: 0.4rem;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.quota-icon {
+  font-size: 1rem;
+}
+
+.quota-zone {
+  flex: 1;
+  margin-left: 0.5rem;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.quota-hour {
+  font-size: 0.9rem;
+  color: #000;
+  font-weight: 500;
+}
+
+/* 🔹 Botón inferior */
+.boton-navegar {
+  background-color: #000020;
+  color: white;
+  text-align: center;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  margin-top: 2rem;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: 0.2s;
+  width: 80%;
+  max-width: 300px;
+}
+
+.boton-navegar:hover {
+  background-color: #001f54;
+}
+
+/* === ESTILOS DEL FORMULARIO DE LOGIN (REGISTER) === */
+
+.register-container {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc; /* Borde gris suave */
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  margin: auto;
+}
+
+/* Imagen superior */
+.register-container img {
+  margin-bottom: 1.2rem;
+  width: 200px;
+  height: auto;
+}
+
+/* Botones */
+.register-container button {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Google */
+.register-container button:first-of-type {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.register-container button:first-of-type:hover {
+  background-color: #f5f5f5;
+}
+
+/* Facebook */
+.register-container button:nth-of-type(2) {
+  background-color: #1a3d7c;
+  color: #fff;
+}
+
+.register-container button:nth-of-type(2):hover {
+  background-color: #274b8a;
+}
+
+/* Separador “or” */
+.register-container .divider {
+  position: relative;
+  text-align: center;
+  margin: 1rem 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.register-container .divider::before,
+.register-container .divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #ddd;
+}
+
+.register-container .divider::before {
+  left: 0;
+}
+
+.register-container .divider::after {
+  right: 0;
+}
+
+/* Inputs */
+.register-container input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.register-container input:focus {
+  outline: none;
+  border-color: #1a3d7c;
+}
+
+/* Botón Continue */
+.register-container .continue-btn {
+  background-color: #001F54;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.register-container .continue-btn:hover {
+  background-color: #003366;
+}
+
+/* Texto inferior */
+.register-container p {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.register-container a {
+  color: #001F54;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-container a:hover {
+  text-decoration: underline;
+}

@@ -30,7 +30,7 @@ export default function Home() {
         <div className="flex justify-center mb-4">
           <span className="text-6xl animate-bounce">🚗</span>
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">JSRL Cupos</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">JAVE cupos</h1>
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mt-4"></div>
         <p className="mt-4 text-gray-600">Cargando...</p>
       </div>

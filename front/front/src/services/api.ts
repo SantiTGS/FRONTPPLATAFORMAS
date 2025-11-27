@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const API_BASE_URL = 'http://10.182.51.38:4000/api';
+const API_BASE_URL = 'http://10.73.162.38:4000/api';
 
 class ApiService {
   private api: AxiosInstance;

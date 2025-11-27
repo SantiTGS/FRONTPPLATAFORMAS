@@ -31,29 +31,36 @@ class RidesService {
     };
   }
 
-  /**
-   * Obtener todos los viajes disponibles
-   */
   async getAvailableRides(filters?: {
-    origen?: string;
-    destino?: string;
-    fecha?: string;
-  }): Promise<Ride[]> {
-    try {
-      const params = new URLSearchParams();
-      if (filters?.origen) params.append('origen', filters.origen);
-      if (filters?.destino) params.append('destino', filters.destino);
-      if (filters?.fecha) params.append('fecha', filters.fecha);
+  origen?: string;
+  destino?: string;
+  fecha?: string;
+}): Promise<Ride[]> {
+  try {
+    const params = new URLSearchParams();
+    if (filters?.origen) params.append('origen', filters.origen);
+    if (filters?.destino) params.append('destino', filters.destino);
+    if (filters?.fecha) params.append('fecha', filters.fecha);
 
-      const queryString = params.toString();
-      const url = queryString ? `/rides?${queryString}` : '/rides';
-      
-      const data = await apiService.get<any[]>(url);
-      return data.map(ride => this.transformRide(ride));
-    } catch (error: any) {
-      throw this.handleError(error);
-    }
+    const queryString = params.toString();
+    const url = queryString ? `/rides?${queryString}` : '/rides';
+    
+    const data = await apiService.get<any[]>(url);
+
+    // Fecha actual de Colombia sin liarte con UTC
+    const todayString = new Date().toLocaleDateString("en-CA");
+
+    // Filtrar viajes anteriores a hoy
+    return data
+      .map(ride => this.transformRide(ride))
+      .filter(ride => ride.fecha >= todayString);
+
+  } catch (error: any) {
+    throw this.handleError(error);
   }
+}
+
+  
 
   /**
    * Obtener un viaje por ID

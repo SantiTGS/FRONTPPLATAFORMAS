@@ -86,7 +86,7 @@ export default function SearchRides() {
                     name="origen"
                     value={filters.origen}
                     onChange={handleFilterChange}
-                    placeholder="Ej: Bogotá"
+                    placeholder="Ej: Cali"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -101,7 +101,7 @@ export default function SearchRides() {
                     name="destino"
                     value={filters.destino}
                     onChange={handleFilterChange}
-                    placeholder="Ej: Medellín"
+                    placeholder="Ej: Jamundi"
                     className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
